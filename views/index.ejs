@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <title>Network Builder</title>
+</head>
+<body>
+    <h1 id="header">Welcome to Network Builder</h1>
+    <p id="description">Meet friends online with similar interests!</p>
+    <hr class="hr">
+    <div class="profile-container">
+        <% users.forEach((user) => { %>
+        <div class="profile-block">
+            <form action="/follow" method="POST">
+                <label for="follow">
+                    <h3><%= user.username %></h3>
+                    <p>Followers: <%=user.followers.length %>&emsp;Following: <%= user.following.length %></p>
+                    <p><%= user.bio %></p>
+                    <hr class="hr">
+                    <p>Contact Info: <%= user.email %></p>
+                </label>
+                <input type="hidden" id="follow" name="follow" value="<%= user.username %>"/>
+                <button class="btn" type="submit">Follow <%= user.username %></button>
+            </form>
+        </div>
+        <% }); %>
+    </div>
+</body>
+</html>
