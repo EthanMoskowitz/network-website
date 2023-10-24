@@ -1,0 +1,66 @@
+body {
+    background-color: #000000;
+    color: #EEEEEE;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+.btn {
+    min-width: 130px;
+    height: 40px;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid #3C51B0;
+    background: #3C51B0;
+}
+
+.btn:hover {
+    background: #B4BEF0;
+    color: #2C51B0;
+}
+
+.hr {
+    width: 50%;
+}
+
+.header {
+    text-align: center;
+}
+
+.text-input {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.input-break {
+    display: block;
+    content: "";
+    margin-top: 20px;
+}
+
+.page-content {
+    min-width: 25%;
+    text-align: center;
+    background-color: #0E142E;
+    padding: 20px 40px 30px 40px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.description {
+    text-align: center;
+}
+
+.page-buttons {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}

@@ -14,4 +14,14 @@ export default class UserAccessor {
             throw e;
         }
     }
+
+    static async createUser(userDoc) {
+        try {
+            await Connection.open("Network-Website");
+            const user = await User.create(userDoc);
+            return user;
+        } catch (e) {
+            throw e;
+        }
+    }
 }

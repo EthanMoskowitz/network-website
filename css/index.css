@@ -1,61 +1,16 @@
-body {
-    background-color: #000000;
-    color: #eeeeee;
-    font-family: 'Trebuchet MS', sans-serif;
-}
-
 .profile-container {
     justify-items: center;
     display: grid;
     grid-template-columns: 300px 300px 300px;
     column-gap: 20px;
     row-gap: 20px;
-    background-color: #0e142e;
-    padding: 20px 40px 30px 40px;
-    border-radius: 20px;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-}
-
-.profile-block {
+  }
+  
+  .profile-block {
     padding: 5px 20px 20px 20px;
     text-align: center;
-    background-color: #18224f;
+    background-color: #18224F;
     width: 250px;
     border-radius: 20px;
     margin-top: 10px;
-}
-
-.btn {
-    min-width: 130px;
-    height: 40px;
-    color: #ffffff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 5px;
-    border: 2px solid #3c51b0;
-    background: #3c51b0;
-}
-
-.btn-hover {
-    background: #b4bef0;
-    color: #2c51b0;
-}
-
-.hr {
-    width: 50%;
-}
-
-#header {
-    text-align: center;
-}
-
-#description {
-    text-align: center;
-}
+  }
