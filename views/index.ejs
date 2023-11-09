@@ -29,12 +29,19 @@
         <% }); %>
     </div>
     <div class="page-buttons">
+        <% if (login) { %>
+        <a href="/profile">
+            <input type="button" class="btn" value="Profile">
+        </a>
+        <% } %>
+        <% if (!login) { %>
         <a href="/login-page">
             <input type="button" class="btn" value="Login">
         </a>
         <a href="/sign-up">
             <input type="button" class="btn" value="Sign Up">
         </a>
+        <% } %>
     </div>
 </body>
 </html>
