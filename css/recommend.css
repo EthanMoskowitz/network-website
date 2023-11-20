@@ -1,0 +1,28 @@
+.profile-container {
+    background-color: #18224F;
+    display: grid;
+    grid-template-columns: 235px 235px 235px 235px 235px;
+    grid-template-rows: 60px;
+    grid-gap: 40px;
+    padding: 20px 0 20px 0;
+}
+
+.profile-block {
+  text-align: center;
+  background-color: #0724a6;
+}
+
+.profile-plus {
+  padding: 10px;
+}
+
+.page-con {
+  max-width: 100%;
+  text-align: center;
+  background-color: #080d21;
+  padding: 20px 40px 30px 40px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}

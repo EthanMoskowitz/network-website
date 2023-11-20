@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/recommend.css" rel="stylesheet" type="text/css">
+    <title>Recommended Followers</title>
+</head>
+<body>
+    <h1 class="header">Recommended Followers for <%= user %></h1>
+    <div class="page-con">
+        <% if (following.length > 0) { %>
+        <h2 class="header">People You Don't Follow Back</h2>
+        <% following.forEach((user) => { %>
+            <div class="profile-container">
+                <div class="profile-block">
+                    <h3><%= user.username %></h3>
+                </div>
+                <div class="profile-block">
+                    <p>Followers: <%=user.followers.length %>&emsp;Following: <%= user.following.length %></p>
+                </div>
+                <div class="profile-block">
+                    <p>Bio: <%= user.bio %></p>
+                </div>
+                <div class="profile-block">
+                    <p>Contact Info: <%= user.email %></p>
+                </div>
+                <div class="profile-block profile-plus">
+                    <form action="/follow" method="POST">
+                        <input type="hidden" id="follow" name="follow" value="<%= user.username %>"/>
+                       <button class="btn" type="submit">Follow <%= user.username %></button>
+                    </form>
+                </div>
+            </div>
+            <% })}; %>
+        <% if (followers.length > 0) { %>
+        <h2 class="header">People You May Know</h2>
+        <% followers.forEach((user) => { %>
+        <div class="profile-container">
+            <div class="profile-block">
+                <h3><%= user.username %></h3>
+            </div>
+            <div class="profile-block">
+                <p>Followers: <%=user.followers.length %>&emsp;Following: <%= user.following.length %></p>
+            </div>
+            <div class="profile-block">
+                <p>Bio: <%= user.bio %></p>
+            </div>
+            <div class="profile-block">
+                <p>Contact Info: <%= user.email %></p>
+            </div>
+            <div class="profile-block profile-plus">
+                <form action="/follow" method="POST">
+                    <input type="hidden" id="follow" name="follow" value="<%= user.username %>"/>
+                   <button class="btn" type="submit">Follow <%= user.username %></button>
+                </form>
+            </div>
+        </div>
+        <% })}; %>
+        <% if (empty) { %>
+            <h1 class="header">You Are Fully Connected</h1>
+        <% } %>
+    </div> 
+    <div class="page-buttons">
+        <a href="/">
+            <input type="button" class="btn" value="Home">
+        </a>
+    </div>
+</body>
+</html>

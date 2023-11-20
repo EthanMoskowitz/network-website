@@ -16,6 +16,10 @@ router.route("/css/style.css").get((req, res) => {
     res.sendFile(path.resolve() + "/css/style.css");
 });
 
+router.route("/css/recommend.css").get((req, res) => {
+    res.sendFile(path.resolve() + "/css/recommend.css");
+});
+
 router.route("/login-page")
     .get(UserController.getLoginPage)
     .post(UserController.postLogin, errorHandler);
@@ -33,6 +37,7 @@ router.route("/logout")
 router.route("/follow")
     .post(Auth.authorize, UserController.followUser, errorHandler);
 
-
+router.route("/recommend")
+    .get(Auth.authorize, UserController.getRecommended, errorHandler);
 
 export default router;

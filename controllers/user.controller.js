@@ -110,4 +110,65 @@ export default class UserController {
             return next();
         }
     }
+
+    static async getRecommended(req, res, next) {
+        if (!req.error) {
+            var user = Auth.getUserInfo(req);
+            const username = user.username;
+            user = await UserAccessor.getUser(username);
+            const following = user.following;
+
+            const directFollowers = user.followers;
+            const recommendFollowing = [];
+            while (directFollowers.length) {
+                const person = directFollowers.pop();
+
+                if(!following.includes(person) && person != username) {
+                    const user = await UserAccessor.getUser(person);
+                    recommendFollowing.push(user);
+                }
+            };
+
+
+            const extendedFollowers = [];
+            await UserController.getBuddies(username, extendedFollowers);
+
+            const recommendFollowers = [];
+            while (extendedFollowers.length) {
+                const person = extendedFollowers.pop();
+
+                if(!following.includes(person) && person != username && !recommendFollowing.includes(person)) {
+                    const user = await UserAccessor.getUser(person);
+                    recommendFollowers.push(user);
+                }
+            };
+
+            var empty = false;
+            if (recommendFollowing.length == 0 && recommendFollowing == 0) {
+                empty = true;
+            }
+
+            res.render("recommend", {
+                user : username,
+                following: recommendFollowing,
+                followers: recommendFollowers,
+                empty: empty
+            } );
+        } else {
+            return next();
+        }
+    }
+
+    static async getBuddies(username, list) {
+        const user = await UserAccessor.getUser(username);
+        const following = user.following;
+
+        while(following.length) {
+            const person = following.pop();
+            if (!list.includes(person)) {
+                list.push(person);
+                await this.getBuddies(person, list);
+            }
+        };
+    }
 }
