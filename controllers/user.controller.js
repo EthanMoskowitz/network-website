@@ -144,7 +144,7 @@ export default class UserController {
             };
 
             var empty = false;
-            if (recommendFollowing.length == 0 && recommendFollowing == 0) {
+            if (recommendFollowing.length == 0 && recommendFollowers.length == 0) {
                 empty = true;
             }
 
